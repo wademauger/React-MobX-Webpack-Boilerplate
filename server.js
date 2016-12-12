@@ -1,8 +1,8 @@
-var webpack = require('webpack')
-var WebpackDevServer = require('webpack-dev-server')
-var config = require('./webpack.config')
-var host = (process.env.HOST || 'localhost')
-var port = process.env.PORT  || 3000
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const config = require('./webpack.config');
+const host = process.env.HOST || 'localhost';
+const port = process.env.PORT  || 3000;
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
@@ -11,10 +11,8 @@ new WebpackDevServer(webpack(config), {
   stats: {
     colors: true,
   },
-}).listen(port, 'localhost', function (err) {
-  if (err) {
-    console.log(err)
-  }
-
-  console.log('Listening at ' + host + ':' + port)
 })
+  .listen(port, 'localhost', err => {
+    if (err)console.log(err);
+    console.log('Listening at ' + host + ':' + port);
+  });

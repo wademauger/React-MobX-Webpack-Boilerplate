@@ -1,7 +1,7 @@
 {
-  "name": "reaxor",
+  "name": "Boilerplate",
   "version": "0.0.1",
-  "description": "React-mobX-Aphrodite-Jest BoilerPlate",
+  "description": "React MobX Webpack Boilerplate",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -10,8 +10,8 @@
     "typecheck": "flow check src",
     "lint": "eslint ./src",
     "build": "webpack --progress -p",
-    "start": "node server.js",
-    "devServer": "NODE_ENV=development node server.js"
+    "start": "NODE_ENV=prod npm run build && http-server",
+    "devServer": "NODE_ENV=dev node server.js"
   },
   "repository": {
     "type": "git",
@@ -24,15 +24,16 @@
     "Jest",
     "Flow"
   ],
-  "author": "Ricardo Ambrogi",
+  "author": "Wade Mauger",
   "bugs": {
-    "url": "https://github.com/kadoBOT/reaxor/issues"
+    "url": "https://github.com/wadeanthony0100/React-MobX-Webpack-Boilerplate/issues"
   },
-  "homepage": "https://github.com/kadoBOT/reaxor#readme",
+  "homepage": "https://github.com/wadeanthony0100/React-MobX-Webpack-Boilerplate",
   "dependencies": {
     "aphrodite": "^0.3.1",
     "babel-register": "^6.8.0",
     "css-loader": "^0.24.0",
+    "http-server": "^0.9.0",
     "mobx": "^2.1.5",
     "mobx-react": "^3.1.0",
     "react": "^15.0.2",

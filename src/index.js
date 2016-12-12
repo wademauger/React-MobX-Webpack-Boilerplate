@@ -7,6 +7,7 @@ import Store from './stores/Store';
 import App from './components/App';
 import {whyDidYouUpdate} from 'why-did-you-update';
 
+const env = process.env.NODE_ENV;
 const store = new Store();
 
 const consoleErrorReporter = ({error}) => {
@@ -18,11 +19,9 @@ consoleErrorReporter.propTypes = {
   error: React.PropTypes.error,
 };
 
-if(process.env.NODE_ENV === 'development') {
+if(env === 'dev') {
   a11y(React);
   whyDidYouUpdate(React);
-  // You can include and exclude components:
-  // whyDidYouUpdate(React, { include: /^pure/, exclude: /^Connect/ })
 }
 
 render(

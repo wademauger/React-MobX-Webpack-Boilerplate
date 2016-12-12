@@ -1,16 +1,16 @@
 require('babel-polyfill')
 
-var path = require('path')
-var webpack = require('webpack')
-var CleanWebpackPlugin = require('clean-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var TARGET = process.env.npm_lifecycle_event
-var host = (process.env.HOST || 'localhost')
-var port = process.env.PORT || 3000
+const path = require('path');
+const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const env = process.env.NODE_ENV || 'prod';
+const host = process.env.HOST || 'localhost';
+const port = process.env.PORT || 3000;
 
-if (TARGET === 'start' || !TARGET) {
+if (env === 'dev') {
   module.exports = {
-    devtool: 'eval',
+    devtool: 'source-maps',
     entry: [
         'react-hot-loader/patch',
         'babel-polyfill',
@@ -48,9 +48,7 @@ if (TARGET === 'start' || !TARGET) {
     },
     progress: true,
   }
-}
-
-if (TARGET === 'build') {
+} else {
   module.exports = {
     devtool: 'cheap-module-source-map',
     entry: './src/index',
