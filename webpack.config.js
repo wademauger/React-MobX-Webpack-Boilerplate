@@ -43,7 +43,7 @@ if (env === 'dev') {
     module: {
       loaders: [
         { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel', 'eslint-loader'], include: path.join(__dirname, 'src')},
-        { test: /\.css$/, loaders: ['style', 'css', 'resolve-url']},
+        { test: /\.scss$/, loaders: ['style', 'css', 'resolve-url']},
       ],
     },
     progress: true,
@@ -59,7 +59,7 @@ if (env === 'dev') {
     module: {
       loaders: [
         { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel']},
-        { test: /\.css$/, loaders: ['style', 'css', 'resolve-url']},
+        { test: /\.scss$/, loaders: ['style', 'css', 'resolve-url']},
       ],
     },
     progress: true,

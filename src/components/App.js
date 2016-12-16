@@ -2,6 +2,7 @@
 import React, {PropTypes} from 'react';
 import { observer } from 'mobx-react';
 import MyComponent from './MyComponent';
+import '../styles/main.scss';
 
 const App = ({store}) => (
   <div className="project">
