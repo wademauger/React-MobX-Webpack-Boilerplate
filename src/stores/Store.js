@@ -1,23 +1,27 @@
 import { observable, computed } from 'mobx';
-import {autorun} from 'mobx';
+import Order from './Order';
 
 class Store {
 
-  constructor() {
-    autorun(() => console.warn('state: ', JSON.stringify(this)));
+  @observable orders = [];
+  nameField;
+  ValField;
+
+  @computed get sum() {
+    return this.orders.reduce((sum, curr) => {
+      return isNaN(curr.value) ? sum : (sum + curr.value);
+    }, 0) || 0;
   }
 
-  @observable description = 'Hello World!';
-  @observable numClicks = 0;
-
-  @computed get oddOrEven() {
-    return this.numClicks % 2 === 0 ? 'even' : 'odd';
+  addOrder = (name, val) => {
+    val = parseFloat(val);
+    this.orders.push(new Order(name, val));
   }
 
-  clickButton = () => {
-    this.numClicks++;
+  removeOrder = () => {
+    this.orders.pop();
   }
-
+  
 }
 
 export default Store;

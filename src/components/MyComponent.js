@@ -4,17 +4,13 @@ import React, {PropTypes} from 'react';
 import { observer } from 'mobx-react';
 
 const MyComponent = ({store}) => {
-  const {clickButton, numClicks, oddOrEven} = store;
+  const {orders} = store;
   return (
     <div className="MyComponent">
-      <button
-        onClick={clickButton}
-        type="button"
-      >
-        Click me!
-      </button>
-      <h4>You've clicked the button {numClicks} times!</h4>
-      <h5>You've clicked button an {oddOrEven} number of times.</h5>
+      {orders.map(order => <div>
+        {`${order.name} for ${order.value}`}
+      </div>
+      )}
     </div>
   );
 };

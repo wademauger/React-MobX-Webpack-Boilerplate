@@ -9,6 +9,7 @@ import {whyDidYouUpdate} from 'why-did-you-update';
 
 const env = process.env.NODE_ENV;
 const store = new Store();
+window.store = store;
 
 const consoleErrorReporter = ({error}) => {
   console.error(error);
